@@ -81,7 +81,7 @@ module Decidim
 
         # Finds the Meetings of the current participatory space
         def meetings
-          @meetings ||= Decidim.find_resource_manifest(:meetings).try(:resource_scope, current_component)
+          @meetings ||= Decidim.published.find_resource_manifest(:meetings).try(:resource_scope, current_component)
                                &.order(title: :asc)
         end
 
